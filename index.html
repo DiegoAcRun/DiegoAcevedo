@@ -19,30 +19,70 @@
       background-size: cover;
     }
     header {
-      text-align: center;
-      padding: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
       background: rgba(0, 0, 0, 0.7);
+      position: relative;
+    }
+    header .logo {
+      width: 100px;
+      height: 50px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid #fff;
     }
     header h1 {
       font-size: 3rem;
       text-transform: uppercase;
       letter-spacing: 0.1rem;
     }
-    nav ul {
+    .hamburger {
+      position: absolute;
+      top: 1rem;
+      right: 2rem;
+      cursor: pointer;
+      width: 30px;
+      height: 30px;
+    }
+    .hamburger div {
+      background-color: #fff;
+      height: 4px;
+      width: 100%;
+      margin: 5px 0;
+      transition: transform 0.3s ease;
+    }
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      border-radius: 0;
+      padding: 1rem;
+      text-align: center;
+      z-index: 1;
+    }
+    .dropdown ul {
       list-style: none;
       padding: 0;
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
+      margin: 0;
     }
-    nav ul li a {
+    .dropdown ul li {
+      margin: 0.5rem 0;
+    }
+    .dropdown ul li a {
       text-decoration: none;
       color: #fff;
       font-size: 1.2rem;
       transition: color 0.3s;
     }
-    nav ul li a:hover {
+    .dropdown ul li a:hover {
       color: #ff6347;
+    }
+    .show {
+      display: block;
     }
     section {
       padding: 4rem 2rem;
@@ -57,46 +97,74 @@
 </head>
 <body>
   <header>
-    <h1>Welcome to My Portfolio</h1>
-    <nav>
+    <div class="logo"></div>
+    <div class="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <div class="dropdown">
       <ul>
         <li><a href="#about">About Me</a></li>
         <li><a href="#portfolio">Portfolio</a></li>
         <li><a href="#running">Running</a></li>
       </ul>
-    </nav>
+    </div>
   </header>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <div style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; margin: auto;">
-      <img src="Imgs/my-photo.jpg" alt="My Photo" style="width: 100%; height: 100%; object-fit: cover;">
+  <section id="about" style="display: flex; align-items: flex-start; justify-content: flex-start; padding: 4rem;">
+    <div style="width: 200px; height: 200px; border-radius: 50%; overflow: hidden; margin-right: 2rem; flex-shrink: 0;">
+      <img src="Imgs/Profile.png" alt="My Photo" style="width: 100%; height: 100%; object-fit: cover;">
     </div>
-    <p>Details about yourself go here.</p>
-  </section>
+    <div style="background: rgba(0, 0, 0, 0.7); padding: 2rem; border-radius: 10px; color: #fff; flex-grow: 1;">
+      <h2 style="margin: 0; font-size: 2rem;">Diego Acevedo</h2>
+      <p>My expertise lies in managing projects that involve data collection, organization, analysis, and visualization to effectively communicate complex information to stakeholders. I thrive in collaborative environments, working closely with cross-functional teams to deliver successful projects that meet both business and technical objectives. As a Business Analyst I am a highly organized and detail-oriented professional with a strong passion for utilizing data to drive informed decision-making. 
+I'm passionate about data and quantitative analysis, and developing and implementing digital solutions based on business data to optimize processes. I have experience in Pharma and Information Technologies sectors with knowledge in PowerBI (DAX), Python and SAP (SD, HCM, BO) for the analysis, management and visualization of data, generating value proposals that can help the internal processes.
 
-  <section id="portfolio">
-    <h2>Portfolio</h2>
-    <div style="display: flex; justify-content: center; gap: 1rem;">
-      <div style="width: 200px; height: 200px; background: rgba(255, 255, 255, 0.1); border: 1px solid #fff;">
-        <p>Project 1</p>
-      </div>
-      <div style="width: 200px; height: 200px; background: rgba(255, 255, 255, 0.1); border: 1px solid #fff;">
-        <p>Project 2</p>
-      </div>
-      <div style="width: 200px; height: 200px; background: rgba(255, 255, 255, 0.1); border: 1px solid #fff;">
-        <p>Project 3</p>
-      </div>
+Full professional proficiency in Spanish and English, advanced level of Portuguese</p>
     </div>
   </section>
 
-  <section id="running">
-    <h2>Running</h2>
-    <p>Share your running experiences and achievements here.</p>
+  <section id="portfolio" style="padding: 4rem;">
+    <div style="background: rgba(0, 0, 0, 0.7); padding: 2rem; border-radius: 10px; color: #fff;">
+      <h2>Portfolio</h2>
+      <div style="display: flex; justify-content: center; gap: 1rem;">
+        <div style="width: 200px; height: 200px; background: rgba(255, 255, 255, 0.1); border: 1px solid #fff;">
+          <p>Project 1</p>
+        </div>
+        <div style="width: 200px; height: 200px; background: rgba(255, 255, 255, 0.1); border: 1px solid #fff;">
+          <p>Project 2</p>
+        </div>
+        <div style="width: 200px; height: 200px; background: rgba(255, 255, 255, 0.1); border: 1px solid #fff;">
+          <p>Project 3</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="running" style="padding: 4rem;">
+    <div style="background: rgba(0, 0, 0, 0.7); padding: 2rem; border-radius: 10px; color: #fff;">
+      <h2>Running</h2>
+      <p>Share your running experiences and achievements here.</p>
+    </div>
   </section>
 
   <footer>
+    <a href="https://www.linkedin.com/in/diego-acevedo/" target="_blank" style="display: inline-block; margin-bottom: 1rem;">
+      <img src="Imgs/linkedin-icon.png" alt="LinkedIn" style="width: 30px; height: 30px;">
+    </a>
     <p>&copy; 2025 Your Name</p>
   </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const hamburger = document.querySelector('.hamburger');
+      const dropdown = document.querySelector('.dropdown');
+
+      hamburger.addEventListener('click', () => {
+        dropdown.classList.toggle('show');
+      });
+    });
+  </script>
 </body>
 </html>
