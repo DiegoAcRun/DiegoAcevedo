@@ -13,10 +13,14 @@
       font-family: 'Arial', sans-serif;
       color: #fff;
       scroll-behavior: smooth;
+      background: linear-gradient(45deg, #fc4c02, #6a5acd, #20b2aa), url('Imgs/grunge-noise-texture-8.jpg');
+      background-size: 300% 300%, cover;
+      animation: multiColorGradientAnimation 15s ease infinite;
     }
-    body {
-      background: url('Imgs/grunge-noise-texture-8.jpg') no-repeat center center fixed;
-      background-size: cover;
+    @keyframes multiColorGradientAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
     header {
       display: flex;
@@ -87,11 +91,96 @@
     section {
       padding: 4rem 2rem;
       text-align: center;
+      overflow: visible;
     }
     footer {
       text-align: center;
       padding: 1rem;
       background: rgba(0, 0, 0, 0.7);
+    }
+    .project-container {
+      flex: 0 0 50%;
+      scroll-snap-align: center;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      padding: 1rem;
+      box-sizing: border-box;
+      margin: 2rem 1rem;
+    }
+    .project-container:hover {
+      transform: scale(1.02);
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4);
+    }
+    .project-grid {
+      display: flex;
+      gap: 1rem;
+      justify-content: flex-start;
+      align-items: stretch;
+      overflow: visible;
+      position: relative;
+      scroll-snap-type: x mandatory;
+    }
+    .key-technologies {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+    .key-technologies img {
+      width: 30px;
+      height: 30px;
+    }
+    .arrow-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.7);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.5rem;
+      z-index: 2;
+    }
+    .arrow-button.left {
+      left: 10px;
+    }
+    .arrow-button.right {
+      right: 10px;
+    }
+    .scroll-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1rem;
+    }
+    .scroll-buttons button {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid #fff;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .scroll-buttons button:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+    #portfolio {
+      padding-top: 6rem;
+    }
+    .project-grid {
+      overflow: visible;
+    }
+    #portfolio > div {
+      overflow: visible;
     }
   </style>
 </head>
@@ -128,16 +217,49 @@ Full professional proficiency in Spanish and English, advanced level of Portugue
   <section id="portfolio" style="padding: 4rem;">
     <div style="background: rgba(0, 0, 0, 0.7); padding: 2rem; border-radius: 10px; color: #fff;">
       <h2>Portfolio</h2>
-      <div style="display: flex; justify-content: center; gap: 1rem;">
-        <div style="width: 200px; height: 200px; background: rgba(255, 255, 255, 0.1); border: 1px solid #fff;">
-          <p>Project 1</p>
+      <div class="project-grid" style="overflow: hidden; position: relative;">
+        <div class="project-container">
+          <h3>Advanced Data Analytics & Visualization</h3>
+          <p style="text-align: justify;">
+            I provide end-to-end <b>Business Intelligence solutions</b> using Power BI to help organizations transform data into strategic insights. My service includes building interactive dashboards, automating reporting workflows, and enabling real-time decision-making across diverse business areas such as <b>operations</b>, <b>supply chain</b>, <b>customer service</b>, <b>finance</b>, and <b>more</b>. With experience supporting <b>multinational teams</b>, I tailor each solution to meet the unique needs of different industries and regions.
+          </p>
+          <div class="key-technologies">
+            <img src="Imgs/Fabric Logo.png" alt="Fabric Logo">
+            <img src="Imgs/PowerBI Logo.png" alt="PowerBI Logo">
+            <img src="Imgs/SQL Logo.png" alt="SQL Logo">
+          </div>
         </div>
-        <div style="width: 200px; height: 200px; background: rgba(255, 255, 255, 0.1); border: 1px solid #fff;">
-          <p>Project 2</p>
+        <div class="project-container">
+          <h3>Digital Transformation & ERP Integration</h3>
+          <p>Streamlining business processes through ERP systems and digital solutions to enhance operational efficiency.</p>
+          <div class="key-technologies">
+            <img src="Imgs/blank.png" alt="Technology Icon">
+            <img src="Imgs/blank.png" alt="Technology Icon">
+            <img src="Imgs/blank.png" alt="Technology Icon">
+          </div>
         </div>
-        <div style="width: 200px; height: 200px; background: rgba(255, 255, 255, 0.1); border: 1px solid #fff;">
-          <p>Project 3</p>
+        <div class="project-container">
+          <h3>Heuristic & Algorithmic Optimization</h3>
+          <p>Developing algorithms to optimize complex systems and improve performance across various domains.</p>
+          <div class="key-technologies">
+            <img src="Imgs/blank.png" alt="Technology Icon">
+            <img src="Imgs/blank.png" alt="Technology Icon">
+            <img src="Imgs/blank.png" alt="Technology Icon">
+          </div>
         </div>
+        <div class="project-container">
+          <h3>New Project</h3>
+          <p>Details about the new project go here.</p>
+          <div class="key-technologies">
+            <img src="Imgs/blank.png" alt="Technology Icon">
+            <img src="Imgs/blank.png" alt="Technology Icon">
+            <img src="Imgs/blank.png" alt="Technology Icon">
+          </div>
+        </div>
+      </div>
+      <div class="scroll-buttons">
+        <button id="scroll-left" style="display: none;">&#9664;</button>
+        <button id="scroll-right">&#9654;</button>
       </div>
     </div>
   </section>
@@ -151,9 +273,9 @@ Full professional proficiency in Spanish and English, advanced level of Portugue
 
   <footer>
     <a href="https://www.linkedin.com/in/diego-acevedo/" target="_blank" style="display: inline-block; margin-bottom: 1rem;">
-      <img src="Imgs/linkedin-icon.png" alt="LinkedIn" style="width: 30px; height: 30px;">
+      <img src="Imgs/linkedin.png" alt="LinkedIn" style="width: 30px; height: 30px;">
     </a>
-    <p>&copy; 2025 Your Name</p>
+    <p>&copy; 2025 Developed by Diego Acevedo</p>
   </footer>
 
   <script>
@@ -164,6 +286,34 @@ Full professional proficiency in Spanish and English, advanced level of Portugue
       hamburger.addEventListener('click', () => {
         dropdown.classList.toggle('show');
       });
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const projectGrid = document.querySelector('.project-grid');
+      const scrollLeftButton = document.getElementById('scroll-left');
+      const scrollRightButton = document.getElementById('scroll-right');
+
+      const updateButtons = () => {
+        const scrollLeft = projectGrid.scrollLeft;
+        const maxScrollLeft = projectGrid.scrollWidth - projectGrid.clientWidth;
+
+        scrollLeftButton.style.display = scrollLeft > 0 ? 'block' : 'none';
+        scrollRightButton.style.display = scrollLeft < maxScrollLeft ? 'block' : 'none';
+      };
+
+      scrollLeftButton.addEventListener('click', () => {
+        const containerWidth = projectGrid.clientWidth / 2;
+        projectGrid.scrollBy({ left: -containerWidth, behavior: 'smooth' });
+      });
+
+      scrollRightButton.addEventListener('click', () => {
+        const containerWidth = projectGrid.clientWidth / 2;
+        projectGrid.scrollBy({ left: containerWidth, behavior: 'smooth' });
+      });
+
+      projectGrid.addEventListener('scroll', updateButtons);
+
+      updateButtons();
     });
   </script>
 </body>
